@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" class="todo-input" placeholder="What needs to be done" v-model="newTodo" @keyup.enter="addTodo">
+    <input type="text" class="todo-input" placeholder="Choose your next dream ..." v-model="newTodo" @keyup.enter="addTodo">
     <transition-group name="fade" enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
     <div v-for="(todo, index) in todosFiltered" :key="todo.id" class="todo-item">
       <div class="todo-item-left">
@@ -134,14 +134,14 @@ export default {
 </script>
 
 <style>
-  
+
   .todo-input {
     width: 100%;
     padding: 10px 18px;
     font-size: 18px;
     margin-bottom: 16px;
 
-    
+
   }
 
   .todo-item {
@@ -155,10 +155,10 @@ export default {
   .remove-item {
     cursor: pointer;
     margin-left: 14px;
-    
+
   }
 
-  .todo-item-left { 
+  .todo-item-left {
     display: flex;
     align-items: center;
   }
@@ -175,10 +175,10 @@ export default {
     margin-left: 12px;
     width: 100%;
     padding: 10px;
-    border: 1px solid rgb(253, 191, 58); 
+    border: 1px solid rgb(253, 191, 58);
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
 
-    
+
   }
 
   .completed {
@@ -201,9 +201,9 @@ export default {
     background-color: white;
     appearance: none;
 
-    
 
-    
+
+
   }
 
   .active {
