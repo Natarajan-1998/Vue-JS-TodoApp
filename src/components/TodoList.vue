@@ -45,20 +45,7 @@ export default {
       idForTodo: 3,
       beforeEditCache: '',
       filter: 'all',
-      todos: [
-        {
-          'id': 1,
-          'title': 'Complete This Todo App using Vue JS',
-          'completed': false,
-          'editing': false,
-        },
-        {
-          'id': 2,
-          'title': 'Host it on Netlify',
-          'completed': false,
-          'editing': false,
-        },
-      ]
+      todos: []
     }
   },
   computed: {
@@ -89,6 +76,17 @@ export default {
         el.focus()
       }
     }
+  },
+  mounted(){
+    if(localStorage.todos){
+      this.todos = JSON.parse(localStorage.todos);
+    }
+  },
+  watch:{
+    todos(newTodo){
+      localStorage.todos = JSON.stringify(newTodo);
+    }
+
   },
   methods: {
     addTodo() {
