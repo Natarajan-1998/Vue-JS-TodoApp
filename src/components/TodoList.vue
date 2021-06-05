@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" class="todo-input" placeholder="Choose your next dream ..." v-model="newTodo" @keyup.enter="addTodo">
+    <input type="text" class="todo-input" placeholder="Add Todo..." v-model="newTodo" @keyup.enter="addTodo">
     <transition-group name="fade" enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
     <div v-for="(todo, index) in todosFiltered" :key="todo.id" class="todo-item">
       <div class="todo-item-left">
@@ -83,8 +83,11 @@ export default {
     }
   },
   watch:{
-    todos(newTodo){
+    todos:{
+      handler(newTodo){
       localStorage.todos = JSON.stringify(newTodo);
+    },
+    deep: true
     }
 
   },
